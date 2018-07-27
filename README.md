@@ -1,2 +1,0 @@
-# ReactPlayground
-Created with CodeSandbox
