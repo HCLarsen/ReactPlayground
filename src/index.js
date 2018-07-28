@@ -25,7 +25,7 @@ const UserStats = ({ user }) => (
 
 const Nav = ({ children }) => <div className="nav">{children}</div>;
 
-const Content = () => <div className="content">main content here</div>;
+const Content = ({ content }) => <div className="content">{content}</div>;
 
 const Sidebar = ({ children }) => <div className="sidebar">{children}</div>;
 
@@ -43,18 +43,23 @@ class App extends React.Component {
       name: "Chris",
       followers: 1234,
       following: 123
-    }
+    },
+    content: "Content passed in as a prop."
   };
 
   render() {
     const { user } = this.state;
+    const { content } = this.state;
 
     return (
       <div className="app">
         <Nav>
           <UserAvatar user={user} size="small" />
         </Nav>
-        <Body sidebar={<UserStats user={user} />} content={<Content />} />
+        <Body
+          sidebar={<UserStats user={user} />}
+          content={<Content content={content} />}
+        />
       </div>
     );
   }
